@@ -12,13 +12,10 @@ class commander{
 
 	void check_special_cases_and_execute()
 	{
-		// Check:   pwd
-		if(input[0] == 'p' && input[1] == 'w' && input[2] == 'd') output = currDir;
-		
 		// Check:   cd any/directory	
-		else if(input[0] == 'c' && input[1] == 'd' && input[2] == ' ') 
+		if(input[0] == 'c' && input[1] == 'd' && input[2] == ' ') 
 		{
-			input += std::string("; pwd");
+			input = "cd " + currDir + "; " + input + "; pwd";
 			output = execute(input.c_str());	
 			if(output.size() > 0) output.erase(output.size()-1);		// Delete the eol char
 			currDir = output;
@@ -27,8 +24,8 @@ class commander{
 		// Any other case	
 		else
 		{
+			input = "cd " + currDir + "; " + input;
 			output = execute(input.c_str());
-			//std::cout << "abc" << std::endl;	
 			if(output.size() > 0) output.erase(output.size()-1);		// Delete the eol char
 		}
 	}
@@ -68,7 +65,8 @@ public:
 
 	commander()
 	{
-		currDir = exec("cd .");
+		currDir = execute("cd .; pwd");
+		currDir.erase(currDir.size()-1);
 		std::cout << "Original directory: " << currDir << std::endl;
 	}
 
@@ -88,8 +86,25 @@ public:
 		return output;
 	}	
 	
-	void extractEOLseparatedStrings(std::string inputStr, std::vector<std::string> &result)
+	void extractEOLseparatedStrings(std::string &inputStr, std::vector<std::string> &result)
 	{
+		if(inputStr.size() == 0) return;	
 
+		std::string segment = "";
+		const char *ch = inputStr.c_str();
+
+		for( ; *ch != NULL; ch++)
+		{
+			if(*ch == '\n')
+			{
+				result.push_back(segment);
+				segment = "";
+				continue;
+			}
+			
+			segment += *ch;	
+		}
+		
+		result.push_back(segment);
 	}	
 };

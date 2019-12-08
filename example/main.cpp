@@ -7,32 +7,25 @@
 int main() 
 {	
 	commander x;
-	std::vector<std::string> folders;
-	std::string output;
-	
-	//std::cout << x.exec("ls") << std::endl;
-	//std::cout << x.exec("pwd") << std::endl;
-	//std::cout << x.exec("cd " + x.currDir+"/../..") << std::endl;
-		
+
 	// Move to the  directory you want
-	std::cout << "Move to this directory: " << x.exec("cd "+ x.currDir+"/../example/test") << std::endl;
-	std::cout << "Current directory: " << x.currDir << std::endl;
-	std::cout << "Current directory: " << x.exec("pwd") << std::endl;
+	x.exec("cd ../example/test");
+	std::cout << "Moved to: " << x.exec("pwd") << std::endl;
 	
 	// Create folders to move files there
-	std::cout << x.exec( "mkdir " + 	x.currDir+"/labels " + 
-				x.currDir+"/labels/curvature_labels " + 
-				x.currDir+"/labels/departure_labels " + 
-				x.currDir+"/labels/lines_labels " + 
-				x.currDir+"/labels/roadtype_labels ") << std::endl;
-/*
+	x.exec("mkdir labels labels/curvature_labels labels/departure_labels labels/lines_labels labels/roadtype_labels");
+
 	// Get the files in the current directory
-	output = x.exec("ls " + x.currDir);
-	std::cout << output << std::endl;
-	x.extractEOLseparatedStrings(output, folders);
-*/
-	//for(int i = 0; i < folders.size(); i++) 
-	//	std::cout << folders[i] << std::endl;
+	std::string output = "";	
+	output = x.exec("ls .");
+	
+	std::vector<std::string> folders(0);
+	x.extract_elements(output, folders);
+
+	for(int i = 0; i < folders.size(); i++) 
+		std::cout << folders[i] << std::endl;
+	
+	
 }
 
 // Get a list of folders and parse it
