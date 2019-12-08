@@ -1,3 +1,3 @@
 #!/bin/bash
 
-vim headers/commander.h src/main.cpp
+vim headers/commander.h example/main.cpp

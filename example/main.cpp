@@ -15,7 +15,7 @@ int main()
 	//std::cout << x.exec("cd " + x.currDir+"/../..") << std::endl;
 		
 	// Move to the  directory you want
-	std::cout << "Move to this directory: " << x.exec("cd "+ x.currDir+"/../test") << std::endl;
+	std::cout << "Move to this directory: " << x.exec("cd "+ x.currDir+"/../example/test") << std::endl;
 	std::cout << "Current directory: " << x.currDir << std::endl;
 	std::cout << "Current directory: " << x.exec("pwd") << std::endl;
 	

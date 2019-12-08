@@ -11,7 +11,7 @@ PROJECT(Commander
 )
 
 ADD_EXECUTABLE( comm
-	src/main.cpp
+	example/main.cpp
 	headers/commander.h
 )
 

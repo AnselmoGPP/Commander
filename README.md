@@ -1,12 +1,14 @@
 # Commander
 
+<br>![Commander](https://raw.githubusercontent.com/AnselmoGPP/Commander/master/example/command.png)
+
 This is a header only-library (see headers folder) that you can include to be able to use your terminal (command line) easily from your C++ code.
 
 <bold>Contents:</bold>
 
 - headers: The single commander.h file that you can use in your project for using your terminal from your C++ code
 
-- src: Here you will find an example of a project that uses this library for different actions (checking current directory, moving to another directory, creating folders, moving and renaming files...). 
+- example: Here you will find an example of a project that uses this library for different actions (checking current directory, moving to another directory, creating folders, moving and renaming files...). 
 
 <bold>First steps:</bold>
 
