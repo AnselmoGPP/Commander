@@ -37,11 +37,14 @@ std::string dir = terminal_1.exec("pwd");
 </code>
 
 
+
 Convert a string with sets of characters separated by '\n' in a set of strings:
 
 <code>
 std::string list = terminal_1.exec("ls ../some/directory");
+  
 std::vector<std::string> files;
+
 extract_elements(list, files);
 </code>
 
