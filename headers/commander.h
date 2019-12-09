@@ -10,6 +10,7 @@ class commander{
 	std::string input = "";
 	std::string output = "";
 
+	// Modify the input, if necessary, before executing the command
 	void check_special_cases_and_execute()
 	{
 		// Check:   cd any/directory	
@@ -72,6 +73,7 @@ public:
 
 	std::string currDir;		// This string is used to store the current directory   ->    currDir = x.exec("cd ..; pwd");
 
+	// Execution call. Argument: Pointer to a null terminated array
 	std::string exec(const char* cmd)
 	{		
 		input = std::string(cmd);	
@@ -79,6 +81,7 @@ public:
 		return output;
 	}
 
+	// Execution call. Argument: std::string
 	std::string exec(const std::string &cmd)
 	{
 		input = cmd;
@@ -86,6 +89,7 @@ public:
 		return output;
 	}	
 	
+	// Given a string with sets of chars separated by '\n', this function gets all these sets (without '\n') and stores them as separated strings in a given vector<string>
 	void extract_elements(std::string &inputStr, std::vector<std::string> &result)
 	{
 		if(inputStr.size() == 0) return;	
