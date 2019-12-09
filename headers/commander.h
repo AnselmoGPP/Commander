@@ -10,6 +10,9 @@ class commander{
 	std::string input = "";
 	std::string output = "";
 
+	// This string contains the current directory   ->    currDir = x.exec("cd ..; pwd");
+	std::string currDir;		
+
 	// Modify the input, if necessary, before executing the command
 	void check_special_cases_and_execute()
 	{
@@ -70,8 +73,6 @@ public:
 		currDir.erase(currDir.size()-1);
 		std::cout << "Original directory: " << currDir << std::endl;
 	}
-
-	std::string currDir;		// This string is used to store the current directory   ->    currDir = x.exec("cd ..; pwd");
 
 	// Execution call. Argument: Pointer to a null terminated array
 	std::string exec(const char* cmd)
