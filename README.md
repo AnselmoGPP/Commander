@@ -8,7 +8,7 @@ This is a header only-library (see headers folder) that you can include to be ab
 
 - <ins>headers</ins>: The single commander.h file that you can use in your project for using your terminal from your C++ code
 
-- <ins>example</ins>: Here you will find an example of a project that uses this library for different actions (checking current directory, moving to another directory, creating folders, copying and renaming files...). 
+- <ins>example</ins>: Here you will find an example of a project that uses this library for different actions (checking current directory, moving to another directory, creating folders, copying and renaming files...). It creates a new folder called "labels" and does all his work there.
 
 <b>First steps:</b>
 

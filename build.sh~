@@ -1,6 +1,0 @@
-#!/bin/bash
-
-cd _BUILD
-cmake -G"Unix Makefiles" ..
-make
-./comm

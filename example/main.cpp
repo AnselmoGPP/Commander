@@ -6,6 +6,7 @@
 
 int main() 
 {	
+	// Open a terminal
 	commander x;
 
 	// Move to the  directory you want
@@ -22,10 +23,23 @@ int main()
 	std::vector<std::string> folders(0);
 	x.extract_elements(output, folders);
 
+	// Copy and rename certain files in the folders created previously
+	std::string file = "";
+	std::vector<std::string> subfolders = { "curvature_labels", "departure_labels", "lines_labels" };
+
 	for(int i = 0; i < folders.size(); i++) 
-		std::cout << folders[i] << std::endl;
+	{
+		if(folders[i] == "labels" || folders[i] == "labels_done") continue;
+
+		for(int j = 0; j < subfolders.size(); j++)
+		{
+			file = x.exec("ls " + folders[i] + "/labels/" + subfolders[j]);
+			x.exec("cp " + folders[i] + "/labels/" + subfolders[j] + "/" + file + " labels/" + subfolders[j]);
+			x.exec("mv labels/" + subfolders[j] + "/" + file + " labels/" + subfolders[j] + "/" + folders[i] + "_" + subfolders[j]); 
+		}
+	}	
 	
-	
+	std::cout << "Everything done!" << std::endl;
 }
 
 // Get a list of folders and parse it
