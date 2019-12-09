@@ -13,40 +13,25 @@ This is a header only-library (see headers folder) that you can include to be ab
 <b>First steps:</b>
 
 First, you have to create an object of type commander. 
-
-<code>
+```p
 #include "commander.h"
-
 commander terminal_1;
-</code>
-
-
+```
 You issue one or more orders by using the exec() function:
-
-<code>
+```cp
 terminal_1.exec("cd /home/username/dev");
-
 terminal_1.exec("mkdir new_project");
-</code>
-
+```
 The exec function returns the output of the terminal:
-
-<code>
+```cp
 std::string dir = terminal_1.exec("pwd");
-</code>
-
-
-Convert a string with sets of characters separated by '\n' in a set of strings:
-
-<code>
+```
+Convert a string with sets of characters separated by <code>'\n'</code> in a set of strings:
+```cp
 std::string list = terminal_1.exec("ls ../some/directory");
-
 std::vector<std::string> files;
-
 terminal_1.extract_elements(list, files);
-</code>
-
-
+```
 <bold>Links:</bold>
 
 - [**Linux scripting**](https://sciencesoftcode.wordpress.com/2019/10/27/linux-scripting/)
