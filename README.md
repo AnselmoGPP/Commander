@@ -29,7 +29,6 @@ terminal_1.exec("cd /home/username/dev");
 terminal_1.exec("mkdir new_project");
 </code>
 
-
 The exec function returns the output of the terminal:
 
 <code>
@@ -37,15 +36,14 @@ std::string dir = terminal_1.exec("pwd");
 </code>
 
 
-
 Convert a string with sets of characters separated by '\n' in a set of strings:
 
 <code>
 std::string list = terminal_1.exec("ls ../some/directory");
-  
+
 std::vector<std::string> files;
 
-extract_elements(list, files);
+terminal_1.extract_elements(list, files);
 </code>
 
 
