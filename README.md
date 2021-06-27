@@ -2,7 +2,7 @@
 
 <br>![Commander](https://raw.githubusercontent.com/AnselmoGPP/Commander/master/example/command.png)
 
-This is a header only-library (see headers folder) that you can include to be able to use your terminal (command line) easily from your C++ code and for scripting from C++.
+This is a header-only library (see headers folder) that you can include to be able to use your terminal (command line) easily from your C++ code and for scripting from C++.
 
 <b>Contents:</b>
 
